@@ -1,0 +1,77 @@
+/* Scrollbar */
+::-webkit-scrollbar {
+width: 5px;
+}
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px rgb(187, 187, 187); 
+}
+::-webkit-scrollbar-thumb {
+background: #aaaaaa; 
+border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: grey; 
+}
+
+body {
+    margin: 0;
+    height: 100%;
+  }
+
+.wrap {
+    background-color: black;
+    /* background-size: 100% auto; */
+    height: auto; 
+  
+    background-attachment: fixed;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: auto;
+    display: block;
+  }
+
+.h90 {
+    height: 90vh;
+}
+
+.bg_bw {
+    background-image: url(../images/bg2_bw.jpg)
+}
+
+.bg_wb {
+    background-image: url(../images/bg2_wb.jpg)
+}
+
+.caption {
+    /* position: absolute;
+    width: 100%;
+    text-align: center; */
+    top: 30%;
+}
+
+.title1 {
+    color : white;
+    padding: 5px;
+    /* border-style: solid;
+    border-color: white; */
+    font-size: 48px;
+}
+
+.content1 {
+    top: 40%;
+    font-size: 20px;
+    color: white;
+}
+
+.fstart {
+    display: flex;
+    align-items: flex-start;
+}
+
+.top20 { margin-top: 20px; }
+.bot20 { margin-bottom: 20px; }
+
+.txt_white {
+    color: white;
+}
