@@ -7,56 +7,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="main.js"></script>
+
+    <script type="text/x-template" id="modal-template">
+        <transition name="modal">
+          <div class="modal-mask">
+            <div class="modal-wrapper">
+              <div class="modal-container">
+  
+                <div class="modal-header">
+                  <slot name="header">
+                    default header
+                  </slot>
+                </div>
+  
+                <div class="modal-body">
+                  <slot name="body">
+                    default body
+                  </slot>
+                </div>
+  
+                <div class="modal-footer">
+                  <slot name="footer">
+                  </slot>
+                  <button class="modal-default-button" @click="$emit('close')">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition>
+      </script>
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="wrap h90 bg_bw">
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center caption">
+        <div class="row wrap bg_bw">
+            <div class="text-center h90">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 caption bg_b">
                     <Span class="title1">HELLO!</span>
                 </div>
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center content1">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 content1 bg_b">
                     <p>My name is Steve Daniels. I'm an Informatics graduate. My main interests are data science, artificial intelligence, and web programming.</p>
                 </div>
-                <!-- <div class="col-6"></div> -->
             </div>
         </div>
-        <div class="row">
-            <div class="wrap bg_wb text-center" style="font-size:24px">
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center top20">
+        <div class="row wrap bg_wb">
+            <div class="text-center" style="font-size:24px">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center top20 bg_w">
                     <span>Education</span>
                 </div>
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-left fstart top20 bot20">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-left fstart top20 bot20 bg_w">
                     <img src="./assets/images/logo-its.jpg" style="float: left; width: 15vw; height: auto; margin-right: 20px;">
                     <span>Bachelor's degree in Informatics Engineering<br>Institut Teknologi Sepuluh Nopember<br><span>GPA: 3.63/4.00</span></span>
                     
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="wrap bg_bw txt_white" style="font-size:24px">
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center top20">
-                    <span>Licenses and Certification</span>
+        <div class="row wrap bg_bw">
+            <div class="txt_white" style="font-size:24px">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center top20 bg_b">
+                    <span>Licenses and Certifications</span>
                 </div>
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-left top20">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-left top20 bg_b">
                     <ul>
-                        <li>IBM Data Analyst Professional Certificate <br>Issued Jan 2021 | <a href="https://coursera.org/share/e1d560c348e7161aa9adea4956124d06">Credential</a> </li>
-                        <li>Data Science Fundamentals with Python and SQL Specialization <br>Issued Dec 2020 | <a href="https://coursera.org/share/a2c8279956e221def3b2afeee6ae9e8a">Credential</a> </li>
-                        <li>IBM Data Science Professional Certificate <br>Issued Dec 2020 | <a href="https://coursera.org/share/e1d560c348e7161aa9adea4956124d06">Credential</a> </li>
-                        <li>Applied Data Science Specialization <br>Issued Nov 2020 | <a href="https://coursera.org/share/ed92eef403135c36b33df7ae44c41984">Credential</a> </li>
+                        <li>IBM Data Analyst Professional Certificate <br>Issued Jan 2021 | <a href="https://coursera.org/share/e1d560c348e7161aa9adea4956124d06" target="_blank">Credential</a> </li>
+                        <li>Data Science Fundamentals with Python and SQL Specialization <br>Issued Dec 2020 | <a href="https://coursera.org/share/a2c8279956e221def3b2afeee6ae9e8a" target="_blank">Credential</a> </li>
+                        <li>IBM Data Science Professional Certificate <br>Issued Dec 2020 | <a href="https://coursera.org/share/e1d560c348e7161aa9adea4956124d06" target="_blank">Credential</a> </li>
+                        <li>Applied Data Science Specialization <br>Issued Nov 2020 | <a href="https://coursera.org/share/ed92eef403135c36b33df7ae44c41984" target="_blank">Credential</a> </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="wrap bg_wb" style="font-size:24px">
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center top20">
+        <div class="row wrap bg_wb">
+            <div class="" style="font-size:24px">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center top20 bg_w">
                     <span>Work Experience</span>
                 </div>
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-left top20">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-left top20 bg_w">
                     <h2>PT. Jaya Sakti Mandiri Unggul</h2>
                     <ul>
                         <li>Internship as web application developer</li>
@@ -67,41 +98,35 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="wrap bg_bw txt_white" style="font-size:24px">
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center top20">
-                    <span>Project</span>
+        <div class="row wrap bg_bw" id="app_project">
+            <div class="txt_white" style="font-size:24px">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center top20 bg_b">
+                    <span>Projects</span>
                 </div>
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-left top20">
-                    <h2>Face Recognition from IP Camera</h2>
-                    <ul>
-                        <li>Face recognition from IP camera placed in Department</li>
-                        <li>Group Project for Computer Vision Class</li>
-                        <li>Tools : Python (OpenCV, Keras)</li>
-                    </ul>
-                </div>
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-left top20">
-                    <h2>Indonesian Sign Language Recognition</h2>
-                    <ul>
-                        <li>Program to recognize Indonesian sign language into text</li>
-                        <li>Bachelor Final Project</li>
-                        <li>Detection source: image, video (file and webcam)</li>
-                        <li>Presented in ICITDA 2020</li>
-                        <li>Tools : Python (OpenCV, Numpy), Darknet</li>
-                    </ul>
-                </div>
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-left top20">
-                    <h2>Chinese Restaurant in Toronto</h2>
-                    <ul>
-                        <li>Program to determine the best place to open an Chinese Restaurant in Toronto</li>
-                        <li>Self-project for completing IBM Professional Data Science Certification</li>
-                        <li>Notebook: <a href="https:/bit.ly/cproTBN">bit.ly/cproTBN</a></li>
-                        <li>Tools : Python (Library: Pandas, Numpy, requests, sklearn, folium, matplotlib). Foursquare API</li>
-                    </ul>
+                <div class="top20 bot20 width80 bg_b">
+                    <div v-for="project in projectLists" class="col-sm-6 col-md-4 top20">
+                        <div class="imgcontainer">
+                                <img @click="showModal = true; showModalData(project)" class="img_project clickable" :src="`${project.image}`" :alt="`${project.title}`">
+                        </div>
+                        <span>{{project.title}}</span>
+                    </div>
+                    <modal v-if="showModal" @close="showModal = false">
+                            
+                        <div slot="header">{{temp_title}}</div>
+                        <div slot="body">
+                            <ul>
+                                <li v-for="text in temp_texts">{{text}}</li>
+                            </ul>
+                        </div>
+                        <div slot="footer">
+                            <a class="modal-link" v-for="link in temp_links" :href="`${link.reflink}`" target="_blank">{{link.refname}}</a>
+                        </div>
+                    </modal>
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="assets/js/main.js" charset="utf-8"></script>
 </body>
 </html>
